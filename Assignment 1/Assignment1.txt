@@ -1,0 +1,81 @@
+Assignment 1
+
+Name: Shikhar Jaiswal
+Roll No: 1601CS44
+
+Ans 1)
+a) Number of CPU = 1
+   Number of cores = 4 physical (+ 4 virtual)
+   Command: cat /proc/cpuinfo
+
+b) Core Frequencies
+   1: 799.97
+   2: 800.066
+   3: 799.960
+   4: 800.053
+   5: 799.999
+   6: 800.077
+   7: 800.01
+   8: 800.062
+   Command: cat /proc/cpuinfo
+
+c) Total Memory: 16144900 kB
+   Command: cat proc/meminfo
+
+d) Free Memory: 8877692 kB
+   Available Memory: 11962856 kB
+   Difference: 3085164 kB
+   Command: cat /proc/meminfo
+
+e) Total Number of User-Level Processes: 86
+   Command: ls /proc | grep[0-9] | wc -l
+
+
+Ans 2)
+a) Command to list the number of unique words in a file:
+   tr ' ' '\n' < welcome.txt | sort | uniq -c | wc -l
+   Output: 24
+
+
+b) Command to list the most frequently occurring word in a file:
+   tr ' ' '\n' < welcome.txt | sort | uniq -c | sort -nr | head -1
+   Output: 3 system
+
+In the above two commands, the unix sub-commands perform the following function:
+
+tr ' ' '\n' < welcome.txt : Takes input sentence from welcome.txt file and translates the spaces
+to newlines, effectively keeping a single word in a single line.
+sort : Sorts the provided individual tokens (or in this case, words).
+uniq -c : Appoints counts to the unique tokens (or in this case, words).
+sort -nr : Sort the numeric tokens (or in this case, words) in reverse.
+wc -l : Prints the word count of the longest line.
+head -1 : Prints the first line of the reverse sorted list of words.
+
+
+Ans 3)
+---Script---
+#!/bin/bash
+
+tr ' ' '\n' < fibonacci.txt > temp.txt
+split -da 1 -l $((`wc -l < temp.txt` / 3)) temp.txt split_file --additional-suffix=".txt"
+paste split_file0.txt split_file2.txt | awk '{print ($1 + $2)}' > temp1.txt
+cat temp1.txt split_file1.txt > output_temp.txt
+tr '\n' ' ' < output_temp.txt > output3.txt
+----End----
+
+In the above two script, the unix sub-commands perform the following function:
+tr ' ' '\n' < fibonacci.txt > temp.txt : Takes the sequence of fibonacci numbers and stores them as one number per line in temp.txt.
+split -da 1 -l $((`wc -l < temp.txt` / 3)) temp.txt split_file --additional-suffix=".txt" : Splits the processed temp.txt file by number of lines into three equal files,  named split_file0.txt, split_file1.txt and split_file2.txt.
+paste split_file0.txt split_file2.txt | awk '{print ($1 + $2)}' > temp1.txt : Adds the numbers line wise from the first and the third split and prints out the result to temp1.txt file.
+cat temp1.txt split_file1.txt > output_temp.txt : Concatenates the second split to the end of the first split and writes to output_temp.txt.
+tr '\n' ' ' < output_temp.txt > output3.txt : Re-translates newlines as spaces, and gives back the processed sequence in required format, stored in output.txt.
+
+
+Ans 4) ls -lSrh *.txt | tr -s ' ' | cut -f9- -d' ' | xargs head -n1 -q  > output4.txt
+
+In the above command, the unix sub-commands perform the following function:
+
+(This command should be run only in a separate folder with 3 dummy files and one empty file).
+ls -lSrh *.txt : Lists the files in ascending order of their sizes, along with other information.
+tr -s ' ' | cut -f9- -d' ' : Squeezes the spaces, and then cuts the appropriate file name from the total information.
+xargs head -n1 -q  > output.txt : Passes the file list through xargs to head command, which then copies only the first sentence from each file to the destination output4.txt.
