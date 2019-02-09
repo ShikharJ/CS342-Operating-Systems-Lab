@@ -1,0 +1,9 @@
+In the provided program, we do the following process:
+
+We take in the number of seconds for the child process to sleep using (main(int argc, char *argv[])) and pass the number of seconds via terminal, storing it in variable t.
+
+When (pid == -1), we assume the fork has failed and hence we return from main().
+
+When (pid == 0), we are in the child fork, and we obtain the child's PID using getpid() function and print it out to the terminal. Then we initiate a for() loop for t times, putting the child to sleep for one second per iteration and printing a symbolic stop for each second. Then we list the processes from the child process by simply running the system("ps") command.
+
+When (pid != 0), we are in the parent fork, and we obtain the parent's PID using getpid() function and print it out to the terminal. Then we wait for the child process to finish execution using the wait(NULL) function. Then we list the processes from the child process by simply running the system("ps") command.

@@ -1,0 +1,7 @@
+In the provided program, we do the following process:
+
+When (child_pid == -1), we assume the fork has failed and hence we return from main().
+
+When (child_pid == 0), we are in the child fork, and we obtain the parent's PID using getppid() function and print it out to the terminal.
+
+When (child_pid != 0), we are in the parent fork, and we already have the child's PID and we print it out to the terminal.

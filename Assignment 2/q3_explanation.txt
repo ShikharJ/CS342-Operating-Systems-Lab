@@ -1,0 +1,9 @@
+In the provided program, we do the following process:
+
+We create a global variable k and initialize its value to 5.
+
+When (pid == -1), we assume the fork has failed and hence we return from main().
+
+When (pid == 0), we are in the child fork, and we obtain the child's PID using getpid() function and print it out to the terminal. Then we print out the unchanged value of global variable k and also increment its value and print that out as well.
+
+When (pid != 0), we are in the parent fork, and we obtain the parent's PID using getpid() function and print it out to the terminal. Then we print out the unchanged value of global variable k and also decrement its value and print that out as well.

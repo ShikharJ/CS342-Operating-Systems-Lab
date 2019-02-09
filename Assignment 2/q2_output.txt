@@ -1,0 +1,6 @@
+Your are in parent fork. PID: 18606
+Value of factorial(5) in parent before fork: 120
+Value of factorial(5) in parent after fork: 120
+Your are in child fork. PID: 18607
+Value of factorial(5) in child before fork: 120
+Value of factorial(5) in child after fork: 120

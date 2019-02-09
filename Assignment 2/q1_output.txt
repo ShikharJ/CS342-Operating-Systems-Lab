@@ -1,0 +1,2 @@
+Your are in parent fork. Child PID: 18177
+Your are in child fork. Parent PID: 18176

@@ -1,0 +1,6 @@
+Your are in parent fork. PID: 18725
+Value of global variable in parent: 5
+Value of decremented global variable in parent: 4
+Your are in child fork. PID: 18726
+Value of global variable in child: 5
+Value of incremented global variable in child: 6

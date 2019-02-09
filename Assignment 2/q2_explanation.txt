@@ -1,0 +1,9 @@
+In the provided program, we do the following process:
+
+We create factorial() function which returns the factorial of a number. We set variable a to 5. We store the value of factorial(a) once before the fork in variable b and once after the fork in variable c.
+
+When (pid == -1), we assume the fork has failed and hence we return from main().
+
+When (pid == 0), we are in the child fork, and we obtain the child's PID using getpid() function and print it out to the terminal along with the values stored in variable b and c.
+
+When (pid != 0), we are in the parent fork, and we obtain the parent's PID using getpid() function and print it out to the terminal along with the values stored in variable b and c.

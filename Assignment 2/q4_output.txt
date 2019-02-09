@@ -1,0 +1,25 @@
+./q4 5
+Your are in parent fork. PID: 20711
+The parent is waiting for the child to terminate.
+Your are in child fork. PID: 20712
+Putting to sleep for 5 seconds!
+.
+.
+.
+.
+.
+List of processes running from child:
+  PID TTY          TIME CMD
+20635 pts/0    00:00:00 bash
+20711 pts/0    00:00:00 q4
+20712 pts/0    00:00:00 q4
+20715 pts/0    00:00:00 sh
+20716 pts/0    00:00:00 ps
+The child has terminated.
+List of processes running from parent:
+  PID TTY          TIME CMD
+20635 pts/0    00:00:00 bash
+20711 pts/0    00:00:00 q4
+20717 pts/0    00:00:00 sh
+20718 pts/0    00:00:00 ps
+The parent will exit now.
